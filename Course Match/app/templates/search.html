@@ -1,0 +1,32 @@
+﻿{% extends "base_in.html" %}
+{% block content %}
+Search: <br />
+{{type}} <br />
+{% if type == "all" %}
+    {% for class in search_result[0] %}
+        <a href="{{url_for('classes', course_id = class.course_id, teacher = class.teacher)}}"> {{class.course_id}}: {{class.name}} </a><br />
+    {% endfor %}
+    {% for user in search_result[1] %}
+        <a href="{{url_for('profile', username = user.username)}}"> {{user.username}} - {{user.email}}@earlham.edu </a><br />
+    {% endfor %}
+    {% for teacher in search_result[2] %}
+        <a href="{{url_for('teachers', teacher = teacher.name)}}"> {{teacher.name}} </a><br />
+    {% endfor %}   
+
+{% elif type=="class" %}
+    {% for class in search_result %}
+        <a href="{{url_for('classes', course_id = class.course_id, teacher = class.teacher)}}"> {{class.course_id}}: {{class.name}} </a><br />
+    {% endfor %}
+
+{% elif type=="user" %}
+    {% for user in search_result %}
+        <a href="{{url_for('profile', username = user.username)}}"> {{user.username}} - {{user.email}} </a><br />
+    {% endfor %}
+
+{% elif type=="teacher" %}
+    {% for teacher in search_result %}
+        <a href="{{url_for('teachers', teacher = teacher.name)}}"> {{teacher.name}} </a><br />
+    {% endfor %}
+{% endif %}
+
+{% endblock %}

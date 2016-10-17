@@ -1,0 +1,13 @@
+I. Basic functionalities:
+1. Classes you are taking.
+2. Review of the class.
+3. Review of the professor.
+4. Find your friends.
+5. Forum for discussion for each class?
+6. Place to sell old books (for each class)
+
+II. Tasks:
+1. Scrape the course catalog.
+2. Create database for: classes, students, reviews (class and professors),
+old books.
+3. Pretty UI.

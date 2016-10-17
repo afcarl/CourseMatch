@@ -1,0 +1,22 @@
+﻿body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.text-muted{
+    color:#551A8B;
+    font-family: 'Pacifico', cursive;
+    font-size:30px;
+}
+
+#name {
+    color: black;
+    font-family: 'Lobster', cursive;
+    font-size: 60px;
+}
+
+.footer{
+    color: lightgrey;
+    font-family: 'Lobster', cursive;
+    font-size: 25px;
+}

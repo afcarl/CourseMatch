@@ -1,0 +1,10 @@
+﻿{% extends "base_in.html" %}
+{% block content %}
+    <img src="{{url_for('static', filename = "img/default_avatar.png")}}" alt="Profile Pic" height="100" width="100" /><br />
+    <h3>Name: {{teacher.name}}</h3>
+    <h3>Rating: {{teacher.rating}}</h3>
+    <h3>Class teaching:</h3>
+    {% for class in class_teaching %}
+        <a href="{{url_for('classes', course_id = class.course_id, teacher = class.teacher)}}">{{class.course_id}}: {{class.name}} <br /> </a>
+    {% endfor %}
+    {% endblock %}

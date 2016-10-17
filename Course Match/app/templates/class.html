@@ -1,0 +1,16 @@
+﻿{% extends "base_in.html" %}
+{% block content %}
+    <h3>{{course.course_id}}: {{course.name}}</h3>
+    <h3>{% if course.teacher.split(",")|length > 1 %}Teachers: 
+        {% else %}Teacher:{% endif %} 
+        {% for teacher in course.teacher.split(",") %}
+            <a href="{{url_for('teachers', teacher=teacher)}}"> {{teacher.strip()}} </a>
+        {% endfor %}
+    </h3>
+    <h3>Rating: {{course.rating}}</h3>
+    {% if not g.user.is_taking(course) %}
+        <a href="{{ url_for('take_class', course=course.name, teacher=course.teacher) }}">Take class</a>
+    {% else %}
+        <a href="{{ url_for('drop_class', course=course.name, teacher=course.teacher) }}">Drop class</a>
+    {% endif %}
+{% endblock %}
